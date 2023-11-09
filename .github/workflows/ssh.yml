@@ -21,7 +21,7 @@ jobs:
       run: echo "Connected to the VM."
     - name: connect and pull
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 
-        "docker ps -a"
+        "sudo docker ps -a"
     - name: cleanup
       run: rm -rf ~/.ssh
 #cd ${{ secrets.WORK_DIR }}
