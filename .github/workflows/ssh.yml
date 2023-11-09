@@ -20,6 +20,6 @@ jobs:
     - name: connected
       run: echo "Connected to the VM."
     - name: connect and pull
-      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
+      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && mkdir created_using_github_actions"
     - name: cleanup
       run: rm -rf ~/.ssh
