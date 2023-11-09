@@ -20,6 +20,8 @@ jobs:
     - name: connected
       run: echo "Connected to the VM."
     - name: connect and pull
-      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && mkdir created_using_github_actions"
+      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 
+        "docker ps -a"
     - name: cleanup
       run: rm -rf ~/.ssh
+#cd ${{ secrets.WORK_DIR }}
