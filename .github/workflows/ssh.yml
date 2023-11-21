@@ -26,8 +26,8 @@ jobs:
       run: "git clone https://github.com/xB0t/Django-Weather-App.git"
     - name: Change into Django Weather App Directory
       run: "cd Django-Weather-App"
-    # - name: Build Docker Image.
-    #   run: "sudo docker build ."
+    - name: Build Docker Image.
+      run: "sudo docker build -t django-weather-app ."
       
     - name: cleanup
       run: rm -rf ~/.ssh
