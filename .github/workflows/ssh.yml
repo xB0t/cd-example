@@ -22,6 +22,8 @@ jobs:
     - name: connect and pull
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 
         "sudo docker ps -a"
+        "git clone https://github.com/xB0t/Django-Weather-App.git"
+        "sudo docker build ."
     - name: cleanup
       run: rm -rf ~/.ssh
 #cd ${{ secrets.WORK_DIR }}
