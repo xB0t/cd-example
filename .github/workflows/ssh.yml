@@ -23,6 +23,7 @@ jobs:
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 
         "sudo docker ps -a"
         "git clone https://github.com/xB0t/Django-Weather-App.git"
+        "cd Django-Weather-App"
         "sudo docker build ."
     - name: cleanup
       run: rm -rf ~/.ssh
