@@ -25,7 +25,6 @@ jobs:
         
     - name: Change into Projects Directory
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} |
-        cd projects/
         git clone https://github.com/xB0t/Django-Weather-App.git
         cd Django-Weather-App/
         sudo docker build -t django-weather-app .
