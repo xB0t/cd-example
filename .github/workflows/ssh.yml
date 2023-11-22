@@ -33,11 +33,11 @@ jobs:
           
     - name: Change into Django Weather App Directory
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-          "cd Django-Weather-App/"
+          "cd Django-Weather-App/" && "sudo docker build -t django-weather-app ."
           
-    - name: Build Docker Image.
-      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-          "sudo docker build -t django-weather-app ."
+    # - name: Build Docker Image.
+    #   run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+    #       "sudo docker build -t django-weather-app ."
       
       # rm -rf .git
       
