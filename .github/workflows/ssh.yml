@@ -23,33 +23,16 @@ jobs:
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 
         "sudo docker ps -a"
         
-    - name: Change into Projects Directory
-      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} |
-        git clone https://github.com/xB0t/Django-Weather-App.git
-        cd Django-Weather-App/
-        sudo docker build -t django-weather-app .
-
-
-      # run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} |
-      #   "cd projects/"
-      #   "git clone https://github.com/xB0t/Django-Weather-App.git"
-      #   "cd Django-Weather-App/"
-      #   "sudo docker build -t django-weather-app ."
-
-        
-    # - name: Clone the repo
-    #   run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-    #       "git clone https://github.com/xB0t/Django-Weather-App.git"
-          
-    # - name: Change into Django Weather App Directory
-    #   run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-    #       "cd Django-Weather-App/" && "sudo docker build -t django-weather-app ."
-          
-    # - name: Build Docker Image.
-    #   run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-    #       "sudo docker build -t django-weather-app ."
-      
-      # rm -rf .git
+    - name: multiple command
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          whoami
+          ls -al
       
     - name: cleanup
       run: rm -rf ~/.ssh
