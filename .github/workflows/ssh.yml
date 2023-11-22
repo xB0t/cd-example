@@ -23,7 +23,7 @@ jobs:
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 
         "sudo docker ps -a"
         
-    - name: multiple command
+    - name: Build Image Locally
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.SSH_HOST }}
@@ -67,4 +67,3 @@ jobs:
 
     - name: cleanup
       run: rm -rf ~/.ssh
-#cd ${{ secrets.WORK_DIR }}
