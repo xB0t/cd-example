@@ -30,7 +30,7 @@ jobs:
           "cd Django-Weather-App/"
     - name: Build Docker Image.
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-          "docker build -t django-weather-app ."
+          "sudo docker build -t django-weather-app ."
       
       
       
