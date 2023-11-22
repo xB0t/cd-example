@@ -28,7 +28,7 @@ jobs:
       run: "cd Django-Weather-App/"
     - name: Build Docker Image.
       # run: "docker build -t django-weather-app ."
-      run: sudo docker build . -f Dockerfile -t weatherapp
+      run: sudo docker build - < Dockerfile 
       
     - name: cleanup
       run: rm -rf ~/.ssh
