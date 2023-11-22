@@ -31,8 +31,9 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          whoami
-          ls -al
+          cd projects/Django-Weather-App
+          git pull
+          sudo docker build -t django-weather-app .
       
     - name: cleanup
       run: rm -rf ~/.ssh
