@@ -22,17 +22,24 @@ jobs:
     - name: connect and pull
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 
         "sudo docker ps -a"
+        
+    - name: Change into Projects Directory
+      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+        "cd projects/"
+        
     - name: Clone the repo
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
           "git clone https://github.com/xB0t/Django-Weather-App.git"
+          
     - name: Change into Django Weather App Directory
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
           "cd Django-Weather-App/"
+          
     - name: Build Docker Image.
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
           "sudo docker build -t django-weather-app ."
       
-      
+      # rm -rf .git
       
     - name: cleanup
       run: rm -rf ~/.ssh
