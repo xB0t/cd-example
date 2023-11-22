@@ -21,18 +21,22 @@ jobs:
       run: echo "Connected to the VM."
     - name: connect and pull
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 
-        "sudo docker ps -a"
+        "sudo docker ps -a",
+        "cd projects/",
+        "git clone https://github.com/xB0t/Django-Weather-App.git",
+        "cd Django-Weather-App/",
+        "sudo docker build -t django-weather-app ."
         
-    - name: Change into Projects Directory
+    # - name: Change into Projects Directory
       # run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
       #   "cd projects/" && "git clone https://github.com/xB0t/Django-Weather-App.git" && "cd Django-Weather-App/" && "sudo docker build -t django-weather-app ."
 
 
-      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} |
-        "cd projects/"
-        "git clone https://github.com/xB0t/Django-Weather-App.git"
-        "cd Django-Weather-App/"
-        "sudo docker build -t django-weather-app ."
+      # run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} |
+      #   "cd projects/"
+      #   "git clone https://github.com/xB0t/Django-Weather-App.git"
+      #   "cd Django-Weather-App/"
+      #   "sudo docker build -t django-weather-app ."
 
         
     # - name: Clone the repo
