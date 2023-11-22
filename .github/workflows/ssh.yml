@@ -27,7 +27,8 @@ jobs:
     - name: Change into Django Weather App Directory
       run: "cd Django-Weather-App/"
     - name: Build Docker Image.
-      run: "docker build -t django-weather-app ."
+      # run: "docker build -t django-weather-app ."
+      run: sudo docker build . -f Dockerfile -t weatherapp
       
     - name: cleanup
       run: rm -rf ~/.ssh
