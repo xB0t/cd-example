@@ -28,11 +28,11 @@ jobs:
       #   "cd projects/" && "git clone https://github.com/xB0t/Django-Weather-App.git" && "cd Django-Weather-App/" && "sudo docker build -t django-weather-app ."
 
 
-      run: |
-        cd projects/
-        git clone https://github.com/xB0t/Django-Weather-App.git
-        cd Django-Weather-App/
-        sudo docker build -t django-weather-app .
+      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} |
+        "cd projects/"
+        "git clone https://github.com/xB0t/Django-Weather-App.git"
+        "cd Django-Weather-App/"
+        "sudo docker build -t django-weather-app ."
 
         
     # - name: Clone the repo
